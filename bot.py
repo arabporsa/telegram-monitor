@@ -4,7 +4,7 @@ from datetime import datetime
 
 api_id = 33297370
 api_hash = "fbb78629e47a3f775e51235c1fb78dc3"
-WEBHOOK  = "https://n.couponscopy.com/webhook/telegram" # ← غيّر
+WEBHOOK  = "https://n.couponscopy.com/webhook-test/telegram" # ← غيّر
 CHANNEL  = "@yt_add_bot" # ← غيّر
 
 client = TelegramClient("session", api_id, api_hash)

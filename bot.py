@@ -4,8 +4,8 @@ from datetime import datetime
 
 api_id = 33297370
 api_hash = "fbb78629e47a3f775e51235c1fb78dc3"
-WEBHOOK  = "https://n.couponscopy.com/webhook/telegram" # ← غيّر
-CHANNEL  = "@yt_add_bot" # ← غيّر
+WEBHOOK = "https://n.couponscopy.com/webhook/telegram"
+CHANNEL = "@yt_add_bot"
 
 client = TelegramClient("session", api_id, api_hash)
 
@@ -16,14 +16,15 @@ async def handler(event):
         return
 
     payload = {
-        "message": text,
-        "channel": CHANNEL,
-        "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "body": {                    # ← إضافة body
+            "message": text,
+            "has_image": False
+        }
     }
 
     try:
         r = requests.post(WEBHOOK, json=payload, timeout=10)
-        print(f"✅ أُرسل | Status: {r.status_code}")
+        print(f"✅ أُرسل | Status: {r.status_code} | Response: {r.text}")
     except Exception as e:
         print(f"❌ خطأ: {e}")
 
